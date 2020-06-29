@@ -132,6 +132,8 @@ def verify_decode_jwt(token):
                 'description': 'Unable to find the appropriate key.'
     }, 400)
 
+# soruce : https://github.com/udacity/FSND/blob/master/BasicFlaskAuth/app.py
+
 
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
