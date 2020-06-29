@@ -23,14 +23,9 @@ def get_drinks():
     # Get all the drinks from db
     drinks = Drink.query.all()
 
-    # Transform Drinks to short drinks
-    drinksList = []
-    for d in drinks:
-        drinksList.append(d.short())
-
     return jsonify({
         'success': True,
-        'drinks': drinksList
+        'drinks': [d.short() for d in drinks]
     }), 200
 
 
@@ -42,13 +37,10 @@ def get_drink_detail(payload):
     drinks = Drink.query.all()
 
     # Transform Drinks to long drinks
-    drinksList = []
-    for d in drinks:
-        drinksList.append(d.long())
 
     return jsonify({
         'success': True,
-        'drinks': drinksList
+        'drinks': [d.long() for d in drinks]
     }), 200
 
 
